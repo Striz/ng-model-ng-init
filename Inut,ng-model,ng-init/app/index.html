@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="app" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lecture 2</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/week-three-controller.js"></script>
+   
+</head>
+
+<body>
+       <form name="myForma" style="background-color:#ddd; text-align: center; margin:10px; padding:10px;"> 
+   <p>Try writing more than 5 letters in the input field:</p>
+<input name="sometxt1" 
+           ng-model ="sometxt" ng-maxlength="5"/>
+<h1 ng-bind ="sometxt"></h1>
+   <div ng-if="!myForma.sometxt1.$valid" style="color:red">
+   Hello
+  </div>
+  </form>
+  
+  <form name="myForm"  style="background-color:#ddd; text-align: center; margin:10px; padding:10px;">
+<input name="myInput" ng-model="myInput" ng-maxlength="20">
+    <p ng-bind= "myInput"></p>
+      <span>{{20 - myInput.length}} letters left</span>
+<h1 ng-if="!myForm.myInput.$valid">The value is too long</h1>
+
+</form>
+  <div  style="background-color:#ddd; text-align: center; margin:10px; padding:10px;"> 
+<div ng-init="title='CodeCraft'; awesome = true;"></div>
+  <h1>{{ title }} is Awesome: {{ awesome}}</h1>
+  
+  <input type="text" ng-model="title"/>
+    <input type="checkbox" ng-model="awesome"/>
+</div>
+  <div  style="background-color:#ddd; text-align: center; margin:10px; padding:10px;"> 
+  <input ng-keypress="count = count + 1" ng-init="count=0">
+key press count: {{count}}
+   </div>
+      <input type="button" value="Refresh Page" onClick="history.go()">
+ 
+</body>
+</html>
